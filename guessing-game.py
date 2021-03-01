@@ -8,7 +8,7 @@ Extras:
 Keep the game going until the user types “exit”
 Keep track of how many guesses the user has taken, and when the game ends, print this out.
 
-Created on Mon Mar  1 17:19:02 2021. @author: Barbora Doslikova
+Created on 1.3.2021. @author: Barbora Doslikova
 """
 import numpy as np
 
@@ -28,10 +28,15 @@ while userInput != "exit":
     if int(userInput) == numberToGuess:
         print("you win the game after " + str(roundNo) + " rounds")
         break
-    else:
-        userInput = input("Guess again or write exit: ")
+    elif int(userInput) > numberToGuess:
+        userInput = input("Guess a smaller number or type exit to finish: ")
         roundNo += 1
+    elif int(userInput) < numberToGuess:
+        userInput = input("Guess a higher number or type exit to finish: ")
+        roundNo += 1
+    else:
+        print("something went wrong and you exited the game after " + str(roundNo) + " rounds")
     
 # for exiting the game
 if userInput == "exit":
-    print("exited the game after " + str(roundNo) + " rounds")
+    print("you exited the game after " + str(roundNo) + " rounds")
