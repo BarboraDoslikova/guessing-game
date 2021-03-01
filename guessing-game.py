@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Generate a random number between 1 and 9 (including 1 and 9).
-Ask the user to guess the number,
-then tell them whether they guessed too low, too high, or exactly right.
+Generates a random number between 1 and 9 (including 1 and 9).
+Asks the user to guess the number,
+then tells them whether they guessed too low, too high, or exactly right.
 
-Extras:
-Keep the game going until the user types “exit”
-Keep track of how many guesses the user has taken, and when the game ends, print this out.
+Keeps the game going until the user types “exit”.
+Keeps track of how many guesses the user has taken, and when the game ends, prints this out.
 
 Created on 1.3.2021. @author: Barbora Doslikova
 """
