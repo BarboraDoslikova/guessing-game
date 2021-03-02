@@ -11,31 +11,27 @@ Created on 1.3.2021. @author: Barbora Doslikova
 """
 import numpy as np
 
-# generate a number to be guessed
-numberToGuess = np.random.randint(1,10)
-print("to guess: ", numberToGuess)
+numberToGuess = np.random.randint(1,10) # low inclusive, high exclusive
 
-# keep track of the round and the guess
-roundNo = 1
+roundNo = 0
+userInput = 0
 
-# get user input for the first round
-userInput = input("Guess a number between 0-9 or type exit to finish: ")
-print("round: ", roundNo, ", guessed: ", userInput)
+while str(userInput) != "exit" and int(userInput) != numberToGuess:
 
-# get user input for the other rounds
-while userInput != "exit":    
-    if int(userInput) == numberToGuess:
-        print("you win the game after " + str(roundNo) + " rounds")
-        break
-    elif int(userInput) > numberToGuess:
-        userInput = input("Guess a smaller number or type exit to finish: ")
-        roundNo += 1
-    elif int(userInput) < numberToGuess:
-        userInput = input("Guess a higher number or type exit to finish: ")
-        roundNo += 1
-    else:
-        print("something went wrong and you exited the game after " + str(roundNo) + " rounds")
+    userInput = input("Guess a number between 0-9 or type exit to finish: ")
+    roundNo += 1
+        
+    sentenceEnding = " guess"
+    if roundNo != 1:
+        sentenceEnding = " guesses"
     
-# for exiting the game
-if userInput == "exit":
-    print("you exited the game after " + str(roundNo) + " rounds")
+    if userInput == "exit":
+        print("you exited the game")
+    elif int(userInput) == numberToGuess:
+        print("you win the game after " + str(roundNo) + sentenceEnding)
+    elif int(userInput) > numberToGuess:
+        print("Guess a smaller number!")
+    elif int(userInput) < numberToGuess:
+        print("Guess a higher number!")
+    else:
+        print("something went wrong and you exited the game after " + str(roundNo) + sentenceEnding)
